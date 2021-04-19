@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		paddingTop: paddingHeight,
 		paddingBottom: paddingHeight,
-		backgroundColor: "#7B7485"
+		backgroundColor: "#282846"
 	},
 	folderRow:
 	{
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		borderWidth: 2,
 		borderRadius: 10,
-		backgroundColor: '#7B7485'
+		backgroundColor: '#d8ebe4'
 	}
 
 });
@@ -55,7 +55,7 @@ const Header = (props) => {
 		style = {{
 			fontSize: (screenWidth / 6) - (screenWidth / 45),
 			fontWeight: "bold",
-			backgroundColor: "#00A6FF",
+			backgroundColor: "#d8ebe4",
 			borderWidth: 2,
 			borderRadius: 10,
 			padding: 10
@@ -85,7 +85,7 @@ const MainMenu = () =>{
 	//Main Body View
 	<ScrollView style = {{
 		flexDirection: "column",
-		backgroundColor: "#AFA8BA"
+		backgroundColor: "#007580"
 		}}>
 
 		{/* Header View */}
@@ -121,19 +121,19 @@ const MainMenu = () =>{
 		style = {[styles.folderRow, {
 			flexDirection: "row"
 		}]}>
-			<Folder backgroundColor = "#0066FF"
+			<Folder backgroundColor = "#FA4679"
 				buttonText = "Favorites" 
 				folderType = "Favorites" 
 				commandArray = {favoritesArray}
 			/>
 			<Folder 
-				backgroundColor = "#EC00B8" 
+				backgroundColor = "#F0A8ED" 
 				buttonText = "Emotions" 
 				folderType = "Emotions"
 				commandArray = {emotionsArray}
 			/>
 			<Folder 
-				backgroundColor = "#FF0071" 
+				backgroundColor = "#4096E3"//"#FF0071" 
 				buttonText = "Needs" 
 				folderType = "Needs"
 				commandArray = {needsArray}
@@ -183,7 +183,7 @@ const MainMenu = () =>{
 				commandArray = {numbersArray}
 			/>
 			<Folder 
-				backgroundColor = "#039590" 
+				backgroundColor = "#4BDBE3" 
 				buttonText = "Greetings" 
 				folderType = "Greetings"
 				commandArray = {greetingsArray}

@@ -11,6 +11,10 @@ import CommandScreen from './Screens/CommandScreen.js';
 // Link to Colors:
 // https://colorhunt.co/palette/264684
 
+//#E3675F
+
+//#E8ABA7, #E3685F, #B0514A
+
 // React Native Documentation:
 // https://reactnative.dev/docs/getting-started
 
