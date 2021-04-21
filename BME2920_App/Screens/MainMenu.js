@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Dimensions, ScrollView} from 'react-native'; 
+import { StyleSheet, Text, View, TextInput, Dimensions, ScrollView, TouchableOpacity} from 'react-native'; 
 import Tts from 'react-native-tts';
 import Folder from '../Folders/Folder.js';
 
@@ -32,8 +32,10 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 		alignItems: "center",
 		borderWidth: 2,
-		borderRadius: 10,
-		backgroundColor: '#d8ebe4'
+		borderTopLeftRadius: 10,
+		borderBottomLeftRadius: 10,
+		backgroundColor: '#d8ebe4',
+		width: '80%'
 	}
 
 });
@@ -65,22 +67,47 @@ const Header = (props) => {
 }
 
 const TextToSpeech = () =>{
-	const[text, setText] = React.useState(" ");
+	const[text, setText] = React.useState('');
 	const onSubmitEditing = () => {
+		setText('')
 		Tts.speak(text)
+		
 	}
 	return(
-		<TextInput
-		style = {styles.textInput}
-		placeholder = "Type here to talk!"
-		onChangeText = {text => setText(text)}
-		onSubmitEditing = {onSubmitEditing}
-		/>
+		<View style = {{
+			display: 'flex',
+			flexDirection: 'row'
+		}}>
+			<TextInput
+			style = {styles.textInput}
+			placeholder = "Type here to talk!"
+			onChangeText = {text => setText(text)}
+			onSubmitEditing = {onSubmitEditing}
+			value = {text}
+			/>
+			<TouchableOpacity style = {{
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+				borderWidth: 2,
+				borderLeftWidth: 0,
+				borderBottomRightRadius: 10,
+				borderTopRightRadius: 10,
+				width: '20%',
+				height: screenHeight / 13,
+				backgroundColor: 'lime'
+			}}
+			onPress = {() => {
+				Tts.speak(text)
+				setText('')
+			}}>
+				<Text style = {{fontSize: 50, top: -15}}>→</Text>
+			</TouchableOpacity>
+		</View>
 	);
 }
 
-const MainMenu = () =>{
-	const cmdArr = ["Hello", "Goodbye", "Hello"];
+const MainMenu = () => {
   return(
 	//Main Body View
 	<ScrollView style = {{
@@ -189,8 +216,6 @@ const MainMenu = () =>{
 				commandArray = {greetingsArray}
 			/>
 		</View>
-
-		
 	</ScrollView>
   )
 }
