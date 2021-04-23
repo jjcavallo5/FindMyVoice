@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, Dimensions, ScrollView, TouchableOpacity} from 'react-native'; 
 import Tts from 'react-native-tts';
 import Folder from '../Folders/Folder.js';
+import {ColorPicker} from 'react-native-color-picker'
 
 //Get Dimensions, store in constant
 const screenWidth = Dimensions.get('window').width;
@@ -35,7 +36,21 @@ const styles = StyleSheet.create({
 		borderTopLeftRadius: 10,
 		borderBottomLeftRadius: 10,
 		backgroundColor: '#d8ebe4',
-		width: '80%'
+		width: '80%',
+		color: 'black',
+	},
+	inputTextButton:
+	{
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		borderWidth: 2,
+		borderLeftWidth: 0,
+		borderBottomRightRadius: 10,
+		borderTopRightRadius: 10,
+		width: '20%',
+		height: screenHeight / 13,
+		backgroundColor: 'lime'
 	}
 
 });
@@ -81,27 +96,17 @@ const TextToSpeech = () =>{
 			<TextInput
 			style = {styles.textInput}
 			placeholder = "Type here to talk!"
+			placeholderTextColor = 'gray'
 			onChangeText = {text => setText(text)}
 			onSubmitEditing = {onSubmitEditing}
 			value = {text}
 			/>
-			<TouchableOpacity style = {{
-				display: 'flex',
-				alignItems: 'center',
-				justifyContent: 'center',
-				borderWidth: 2,
-				borderLeftWidth: 0,
-				borderBottomRightRadius: 10,
-				borderTopRightRadius: 10,
-				width: '20%',
-				height: screenHeight / 13,
-				backgroundColor: 'lime'
-			}}
+			<TouchableOpacity style = {styles.inputTextButton}
 			onPress = {() => {
 				Tts.speak(text)
 				setText('')
 			}}>
-				<Text style = {{fontSize: 50, top: -15}}>→</Text>
+				<Text style = {{fontSize: screenHeight / 20}}>→</Text>
 			</TouchableOpacity>
 		</View>
 	);

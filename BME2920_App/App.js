@@ -4,7 +4,6 @@ import MainMenu from './Screens/MainMenu.js';
 import {NavigationContainer, StackActions} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import FolderMenu from './Screens/FolderMenu.js';
-import CommandScreen from './Screens/CommandScreen.js';
 
 // < --------------- Notes ---------------------->
 
@@ -95,13 +94,6 @@ const NavigationStack = () =>
 				<Stack.Screen
 					name = "Greetings"
 					component = {FolderMenu}
-					options = {{
-						headerShown: false
-					}}
-				/>
-				<Stack.Screen
-					name = "Command"
-					component = {CommandScreen}
 					options = {{
 						headerShown: false
 					}}
